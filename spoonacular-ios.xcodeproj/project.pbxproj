@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FC6A1BBE384EE76BC182FDF /* Pods_spoonacular_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71FAC1806461F7ACD94F2ED /* Pods_spoonacular_ios.framework */; };
+		65D314A41A2327FF026BBEF9 /* Pods_spoonacular_ios_spoonacular_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC78E9F7CFCA319B54BE036A /* Pods_spoonacular_ios_spoonacular_iosUITests.framework */; };
 		A8ACC0BD2927DFC400A2E447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */; };
 		A8ACC0BF2927DFC400A2E447 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */; };
 		A8ACC0C12927DFC400A2E447 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0C02927DFC400A2E447 /* ViewController.swift */; };
@@ -16,6 +18,7 @@
 		A8ACC0D42927DFC900A2E447 /* spoonacular_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0D32927DFC900A2E447 /* spoonacular_iosTests.swift */; };
 		A8ACC0DE2927DFC900A2E447 /* spoonacular_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0DD2927DFC900A2E447 /* spoonacular_iosUITests.swift */; };
 		A8ACC0E02927DFC900A2E447 /* spoonacular_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0DF2927DFC900A2E447 /* spoonacular_iosUITestsLaunchTests.swift */; };
+		E318F5689F1C4DD4A6D18EE5 /* Pods_spoonacular_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC88567F0CE2FFDFB02F6461 /* Pods_spoonacular_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2345B82D85A48A785C515DE0 /* Pods-spoonacular-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		338CBC2D726E79AB28F4CE17 /* Pods-spoonacular-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-iosTests.release.xcconfig"; path = "Target Support Files/Pods-spoonacular-iosTests/Pods-spoonacular-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		7C0B553A06D6EF2304DF25F0 /* Pods-spoonacular-ios-spoonacular-iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios-spoonacular-iosUITests.release.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		851A6612CFEE7DB9D73E623E /* Pods-spoonacular-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-iosTests/Pods-spoonacular-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8EF5C8596D5CE030B252532B /* Pods-spoonacular-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios.release.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios.release.xcconfig"; sourceTree = "<group>"; };
+		A46594383BC1AC4364092A2D /* Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8ACC0B92927DFC400A2E447 /* spoonacular-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoonacular-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +58,9 @@
 		A8ACC0D92927DFC900A2E447 /* spoonacular-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "spoonacular-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8ACC0DD2927DFC900A2E447 /* spoonacular_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spoonacular_iosUITests.swift; sourceTree = "<group>"; };
 		A8ACC0DF2927DFC900A2E447 /* spoonacular_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spoonacular_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CC88567F0CE2FFDFB02F6461 /* Pods_spoonacular_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spoonacular_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC78E9F7CFCA319B54BE036A /* Pods_spoonacular_ios_spoonacular_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spoonacular_ios_spoonacular_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E71FAC1806461F7ACD94F2ED /* Pods_spoonacular_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spoonacular_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC6A1BBE384EE76BC182FDF /* Pods_spoonacular_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E318F5689F1C4DD4A6D18EE5 /* Pods_spoonacular_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D314A41A2327FF026BBEF9 /* Pods_spoonacular_ios_spoonacular_iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				A8ACC0D22927DFC900A2E447 /* spoonacular-iosTests */,
 				A8ACC0DC2927DFC900A2E447 /* spoonacular-iosUITests */,
 				A8ACC0BA2927DFC400A2E447 /* Products */,
+				C45D4A7A2FD3C07D432CDA35 /* Pods */,
+				B6847B72702F6703F9456977 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +144,30 @@
 			path = "spoonacular-iosUITests";
 			sourceTree = "<group>";
 		};
+		B6847B72702F6703F9456977 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E71FAC1806461F7ACD94F2ED /* Pods_spoonacular_ios.framework */,
+				DC78E9F7CFCA319B54BE036A /* Pods_spoonacular_ios_spoonacular_iosUITests.framework */,
+				CC88567F0CE2FFDFB02F6461 /* Pods_spoonacular_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C45D4A7A2FD3C07D432CDA35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2345B82D85A48A785C515DE0 /* Pods-spoonacular-ios.debug.xcconfig */,
+				8EF5C8596D5CE030B252532B /* Pods-spoonacular-ios.release.xcconfig */,
+				A46594383BC1AC4364092A2D /* Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig */,
+				7C0B553A06D6EF2304DF25F0 /* Pods-spoonacular-ios-spoonacular-iosUITests.release.xcconfig */,
+				851A6612CFEE7DB9D73E623E /* Pods-spoonacular-iosTests.debug.xcconfig */,
+				338CBC2D726E79AB28F4CE17 /* Pods-spoonacular-iosTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8ACC0E32927DFC900A2E447 /* Build configuration list for PBXNativeTarget "spoonacular-ios" */;
 			buildPhases = (
+				98CD59AB82905E009CA2CEE6 /* [CP] Check Pods Manifest.lock */,
 				A8ACC0B52927DFC400A2E447 /* Sources */,
 				A8ACC0B62927DFC400A2E447 /* Frameworks */,
 				A8ACC0B72927DFC400A2E447 /* Resources */,
+				7D9C6C0D931D57D03219B825 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8ACC0E62927DFC900A2E447 /* Build configuration list for PBXNativeTarget "spoonacular-iosTests" */;
 			buildPhases = (
+				915A1079EF377FDD11E0D9C7 /* [CP] Check Pods Manifest.lock */,
 				A8ACC0CB2927DFC900A2E447 /* Sources */,
 				A8ACC0CC2927DFC900A2E447 /* Frameworks */,
 				A8ACC0CD2927DFC900A2E447 /* Resources */,
@@ -169,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8ACC0E92927DFC900A2E447 /* Build configuration list for PBXNativeTarget "spoonacular-iosUITests" */;
 			buildPhases = (
+				5A113750E175FF15E8E321A5 /* [CP] Check Pods Manifest.lock */,
 				A8ACC0D52927DFC900A2E447 /* Sources */,
 				A8ACC0D62927DFC900A2E447 /* Frameworks */,
 				A8ACC0D72927DFC900A2E447 /* Resources */,
+				5AA0352130229E19D191B854 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,7 +253,7 @@
 				};
 			};
 			buildConfigurationList = A8ACC0B42927DFC400A2E447 /* Build configuration list for PBXProject "spoonacular-ios" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A113750E175FF15E8E321A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spoonacular-ios-spoonacular-iosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AA0352130229E19D191B854 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D9C6C0D931D57D03219B825 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		915A1079EF377FDD11E0D9C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spoonacular-iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98CD59AB82905E009CA2CEE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spoonacular-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A8ACC0B52927DFC400A2E447 /* Sources */ = {
@@ -432,6 +581,7 @@
 		};
 		A8ACC0E42927DFC900A2E447 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2345B82D85A48A785C515DE0 /* Pods-spoonacular-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -460,6 +610,7 @@
 		};
 		A8ACC0E52927DFC900A2E447 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EF5C8596D5CE030B252532B /* Pods-spoonacular-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +639,7 @@
 		};
 		A8ACC0E72927DFC900A2E447 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 851A6612CFEE7DB9D73E623E /* Pods-spoonacular-iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +660,7 @@
 		};
 		A8ACC0E82927DFC900A2E447 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 338CBC2D726E79AB28F4CE17 /* Pods-spoonacular-iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +681,7 @@
 		};
 		A8ACC0EA2927DFC900A2E447 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A46594383BC1AC4364092A2D /* Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +700,7 @@
 		};
 		A8ACC0EB2927DFC900A2E447 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C0B553A06D6EF2304DF25F0 /* Pods-spoonacular-ios-spoonacular-iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
