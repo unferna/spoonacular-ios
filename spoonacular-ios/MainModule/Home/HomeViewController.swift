@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
         searchBar.backgroundImage = UIImage()
         searchBar.searchTextField.backgroundColor = .white
         searchBar.placeholder = "Try ‘Mashed Potatoes’"
+        searchBar.searchTextField.font = Theme.LabelStyle.input.textStyle.font
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()

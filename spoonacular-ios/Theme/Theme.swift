@@ -20,3 +20,20 @@ extension Theme {
         static let basicInterItemSpacing: CGFloat = 16
     }
 }
+
+
+extension UILabel {
+    func applyTextStyle(_ style: Theme.LabelStyle, ignoreLineHeight: Bool = false, alignment: NSTextAlignment = .left, color: UIColor? = nil) {
+        font = style.textStyle.font
+        numberOfLines = 0
+        
+        if !ignoreLineHeight {
+            lineHeight = style.textStyle.lineHeight
+        }
+
+        textAlignment = alignment
+        
+        guard let color = color else { return }
+        textColor = color
+    }
+}

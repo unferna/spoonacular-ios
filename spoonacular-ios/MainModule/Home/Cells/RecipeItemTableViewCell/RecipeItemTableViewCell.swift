@@ -31,7 +31,7 @@ class RecipeItemTableViewCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Recipe Test #"
-        label.textColor = .white
+        label.applyTextStyle(.cardTitle, color: .white)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
