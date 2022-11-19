@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BasicViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.returnKeyType = .done
@@ -42,9 +42,16 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private var presentation: RecipesPresenter?
+    private var cardsDataSource: [CardItem] = []
+    private var viewItemsCount = 10
+    
+    override func commonInit() {
+        super.commonInit()
+        
+        presentation = RecipesPresenter(view: self)
         setupSubviews()
+        loadData()
     }
     
     private func setupSubviews() {
@@ -70,17 +77,31 @@ class HomeViewController: UIViewController {
             contentTableView.bottomAnchor.constraint(equalTo: tableContainerView.bottomAnchor),
         ])
     }
+    
+    private func loadData() {
+        presentation?.findRecipes(limit: viewItemsCount)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        cardsDataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cardItem = cardsDataSource[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(RecipeItemTableViewCell.self, for: indexPath)
         cell.indexPath = indexPath
+        cell.configureWith(item: cardItem)
         
         return cell
+    }
+}
+
+extension HomeViewController: RecipesView {
+    func recipesCardsLoaded(_ cards: [CardItem]) {
+        cardsDataSource = cards
+        contentTableView.reloadData()
     }
 }

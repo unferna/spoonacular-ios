@@ -25,6 +25,16 @@
 		A89E9B312929081A00139A97 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B302929081A00139A97 /* Typography.swift */; };
 		A89E9B332929095A00139A97 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B322929095A00139A97 /* UIFont+Extensions.swift */; };
 		A89E9B3729290C9900139A97 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B3629290C9900139A97 /* UILabel+Extensions.swift */; };
+		A89E9B3E29292E5200139A97 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B3D29292E5200139A97 /* CardItem.swift */; };
+		A89E9B4029292FDC00139A97 /* RecipesDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B3F29292FDC00139A97 /* RecipesDataService.swift */; };
+		A89E9B4229292FF000139A97 /* RecipesDataServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B4129292FF000139A97 /* RecipesDataServiceType.swift */; };
+		A89E9B442929303300139A97 /* CommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B432929303300139A97 /* CommonTypes.swift */; };
+		A89E9B47292932E900139A97 /* RecipesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B46292932E900139A97 /* RecipesPresenter.swift */; };
+		A89E9B49292936C200139A97 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B48292936C200139A97 /* BasicViewController.swift */; };
+		A89E9B4C2929388900139A97 /* AlamofireRecipesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B4B2929388900139A97 /* AlamofireRecipesDataSource.swift */; };
+		A89E9B4E29293A8300139A97 /* Colllection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B4D29293A8300139A97 /* Colllection+Extensions.swift */; };
+		A89E9B512929434A00139A97 /* HomeRecipesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B502929434A00139A97 /* HomeRecipesResponse.swift */; };
+		A89E9B53292945D800139A97 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B52292945D800139A97 /* UIImageView+Extensions.swift */; };
 		A8ACC0BD2927DFC400A2E447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */; };
 		A8ACC0BF2927DFC400A2E447 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */; };
 		A8ACC0C42927DFC400A2E447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8ACC0C22927DFC400A2E447 /* Main.storyboard */; };
@@ -76,6 +86,16 @@
 		A89E9B302929081A00139A97 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		A89E9B322929095A00139A97 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		A89E9B3629290C9900139A97 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		A89E9B3D29292E5200139A97 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
+		A89E9B3F29292FDC00139A97 /* RecipesDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDataService.swift; sourceTree = "<group>"; };
+		A89E9B4129292FF000139A97 /* RecipesDataServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDataServiceType.swift; sourceTree = "<group>"; };
+		A89E9B432929303300139A97 /* CommonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTypes.swift; sourceTree = "<group>"; };
+		A89E9B46292932E900139A97 /* RecipesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesPresenter.swift; sourceTree = "<group>"; };
+		A89E9B48292936C200139A97 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		A89E9B4B2929388900139A97 /* AlamofireRecipesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRecipesDataSource.swift; sourceTree = "<group>"; };
+		A89E9B4D29293A8300139A97 /* Colllection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colllection+Extensions.swift"; sourceTree = "<group>"; };
+		A89E9B502929434A00139A97 /* HomeRecipesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecipesResponse.swift; sourceTree = "<group>"; };
+		A89E9B52292945D800139A97 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		A8ACC0B92927DFC400A2E447 /* spoonacular-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoonacular-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +159,8 @@
 				A89E9B132928462500139A97 /* UIView+Extensions.swift */,
 				A89E9B322929095A00139A97 /* UIFont+Extensions.swift */,
 				A89E9B3629290C9900139A97 /* UILabel+Extensions.swift */,
+				A89E9B52292945D800139A97 /* UIImageView+Extensions.swift */,
+				A89E9B4D29293A8300139A97 /* Colllection+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,7 +193,13 @@
 		A89E9B0E292843E700139A97 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				A89E9B4A2929385A00139A97 /* Dependencies */,
+				A89E9B3929292DDD00139A97 /* Data */,
+				A89E9B45292932AA00139A97 /* Presentation */,
+				A89E9B3829292DBC00139A97 /* MyRecipes */,
+				A89E9AFD29283ABC00139A97 /* Theme */,
 				A89E9B0D292843B100139A97 /* Home */,
+				A89E9B48292936C200139A97 /* BasicViewController.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -203,6 +231,74 @@
 			path = Source_Sans_Pro;
 			sourceTree = "<group>";
 		};
+		A89E9B3829292DBC00139A97 /* MyRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B0429283E0D00139A97 /* MyRecipesViewController.swift */,
+			);
+			path = MyRecipes;
+			sourceTree = "<group>";
+		};
+		A89E9B3929292DDD00139A97 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B3A29292E1900139A97 /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A89E9B3A29292E1900139A97 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B3C29292E3800139A97 /* Types */,
+				A89E9B3B29292E2500139A97 /* Models */,
+				A89E9B3F29292FDC00139A97 /* RecipesDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A89E9B3B29292E2500139A97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B3D29292E5200139A97 /* CardItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A89E9B3C29292E3800139A97 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B4129292FF000139A97 /* RecipesDataServiceType.swift */,
+				A89E9B432929303300139A97 /* CommonTypes.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		A89E9B45292932AA00139A97 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B46292932E900139A97 /* RecipesPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A89E9B4A2929385A00139A97 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B4F2929433000139A97 /* Models */,
+				A89E9B4B2929388900139A97 /* AlamofireRecipesDataSource.swift */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		A89E9B4F2929433000139A97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B502929434A00139A97 /* HomeRecipesResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A8ACC0B02927DFC400A2E447 = {
 			isa = PBXGroup;
 			children = (
@@ -229,9 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				A89E9B0E292843E700139A97 /* MainModule */,
-				A89E9B0429283E0D00139A97 /* MyRecipesViewController.swift */,
 				A89E9B0229283BDC00139A97 /* MainTabBarController.swift */,
-				A89E9AFD29283ABC00139A97 /* Theme */,
 				A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */,
 				A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */,
 				A8ACC0C22927DFC400A2E447 /* Main.storyboard */,
@@ -527,19 +621,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A89E9B4229292FF000139A97 /* RecipesDataServiceType.swift in Sources */,
+				A89E9B49292936C200139A97 /* BasicViewController.swift in Sources */,
 				A8ACC0BD2927DFC400A2E447 /* AppDelegate.swift in Sources */,
 				A89E9B0129283B6800139A97 /* Theme.swift in Sources */,
+				A89E9B3E29292E5200139A97 /* CardItem.swift in Sources */,
 				A89E9B102928442400139A97 /* RecipeItemTableViewCell.swift in Sources */,
+				A89E9B53292945D800139A97 /* UIImageView+Extensions.swift in Sources */,
 				A89E9B0529283E0D00139A97 /* MyRecipesViewController.swift in Sources */,
 				A89E9B082928408200139A97 /* UIViewController+Extensions.swift in Sources */,
+				A89E9B4E29293A8300139A97 /* Colllection+Extensions.swift in Sources */,
 				A89E9B12292845A400139A97 /* UITableView+Extensions.swift in Sources */,
 				A89E9B3729290C9900139A97 /* UILabel+Extensions.swift in Sources */,
 				A89E9B0329283BDC00139A97 /* MainTabBarController.swift in Sources */,
+				A89E9B4029292FDC00139A97 /* RecipesDataService.swift in Sources */,
 				A8ACC0BF2927DFC400A2E447 /* SceneDelegate.swift in Sources */,
 				A89E9B0A2928411B00139A97 /* UIApplication+Extensions.swift in Sources */,
+				A89E9B4C2929388900139A97 /* AlamofireRecipesDataSource.swift in Sources */,
 				A89E9AFC29283A9C00139A97 /* HomeViewController.swift in Sources */,
+				A89E9B47292932E900139A97 /* RecipesPresenter.swift in Sources */,
+				A89E9B442929303300139A97 /* CommonTypes.swift in Sources */,
 				A89E9B332929095A00139A97 /* UIFont+Extensions.swift in Sources */,
 				A89E9B312929081A00139A97 /* Typography.swift in Sources */,
+				A89E9B512929434A00139A97 /* HomeRecipesResponse.swift in Sources */,
 				A89E9B142928462500139A97 /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

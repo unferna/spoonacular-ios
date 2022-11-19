@@ -30,7 +30,7 @@ class RecipeItemTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Recipe Test #"
+        label.text = "Recipe Title"
         label.applyTextStyle(.cardTitle, color: .white)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -104,5 +104,13 @@ class RecipeItemTableViewCell: UITableViewCell {
         heightConstraint.isActive = true
         
         favoriteButton.addTarget(self, action: #selector(favoriteButtonPressed), for: .touchUpInside)
+    }
+    
+    func configureWith(item: CardItem) {
+        titleLabel.text = item.title
+        guard let imageUrlString = item.image else { return }
+        let imageUrl = URL(string: imageUrlString)
+        
+        recipeImageView.setImage(from: imageUrl)
     }
 }
