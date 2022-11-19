@@ -37,4 +37,8 @@ class RecipesPresenter {
             RecipesDataService.shared.saveRecipe(cardItem: cardItem)
         }
     }
+    
+    func recipeDetails(of item: CardItem) {
+        RecipesDataService.shared.loadRecipeDetails(id: item.id)
+    }
 }

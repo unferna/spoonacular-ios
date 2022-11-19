@@ -38,6 +38,7 @@ class HomeViewController: BasicViewController {
         tablePadding.bottom = Theme.Layout.basicHorizontalSpacing
         tableView.contentInset = tablePadding
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -83,7 +84,7 @@ class HomeViewController: BasicViewController {
             contentTableView.bottomAnchor.constraint(equalTo: tableContainerView.bottomAnchor),
         ])
         
-        view.addGestureRecognizer(closeKeyboardGesture)
+        // view.addGestureRecognizer(closeKeyboardGesture)
     }
     
     private func loadData() {
@@ -113,7 +114,7 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cardsDataSource.count
     }
@@ -127,6 +128,12 @@ extension HomeViewController: UITableViewDataSource {
         cell.configureWith(item: cardItem)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Tapped")
+        guard let cardItem = cardsDataSource[safe: indexPath.row] else { return }
+        presentation?.recipeDetails(of: cardItem)
     }
 }
 

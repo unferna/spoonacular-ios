@@ -47,6 +47,12 @@ class RecipesDataService {
         }
     }
     
+    func loadRecipeDetails(id: String) {
+        validateDataSource()
+        
+        dataSource?.loadRecipeDetails(id: id) { details, error in }
+    }
+    
     func saveRecipe(cardItem: CardItem) {
         itemsPersistance?.saveCardItem(cardItem)
     }
