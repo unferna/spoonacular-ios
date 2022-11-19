@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RecipesDataServiceType: AnyObject {
-    func loadRecipes(limit: Int, result: @escaping CompletionBlock<[CardItem]>)
+    func loadRecipes(query: String?, limit: Int, result: @escaping CompletionBlock<[CardItem]>)
 }

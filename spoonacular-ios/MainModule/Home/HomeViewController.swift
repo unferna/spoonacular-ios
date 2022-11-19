@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: BasicViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.delegate = self
         searchBar.returnKeyType = .done
         searchBar.backgroundImage = UIImage()
         searchBar.searchTextField.backgroundColor = .white
@@ -42,9 +43,14 @@ class HomeViewController: BasicViewController {
         return tableView
     }()
     
+    private lazy var closeKeyboardGesture: UITapGestureRecognizer = {
+        return UITapGestureRecognizer(target: self, action: #selector( dismissKeyboard ))
+    }()
+    
     private var presentation: RecipesPresenter?
     private var cardsDataSource: [CardItem] = []
     private var viewItemsCount = 10
+    private var debounceSearchBarTimer: Timer?
     
     override func commonInit() {
         super.commonInit()
@@ -76,10 +82,34 @@ class HomeViewController: BasicViewController {
             contentTableView.trailingAnchor.constraint(equalTo: tableContainerView.trailingAnchor),
             contentTableView.bottomAnchor.constraint(equalTo: tableContainerView.bottomAnchor),
         ])
+        
+        view.addGestureRecognizer(closeKeyboardGesture)
     }
     
     private func loadData() {
-        presentation?.findRecipes(limit: viewItemsCount)
+        presentation?.findRecipes(searchText: searchBar.text, limit: viewItemsCount)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    deinit {
+        view.removeGestureRecognizer(closeKeyboardGesture)
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        debounceSearchBarTimer?.invalidate()
+        debounceSearchBarTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
+            guard let self = self else { return }
+            self.loadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
     }
 }
 

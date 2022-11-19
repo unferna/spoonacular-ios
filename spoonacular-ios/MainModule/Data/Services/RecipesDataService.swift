@@ -23,8 +23,8 @@ class RecipesDataService {
         }
     }
     
-    func loadRecipes(limit: Int, result: @escaping CompletionBlock<[CardItem]>) {
+    func loadRecipes(query: String?, limit: Int, result: @escaping CompletionBlock<[CardItem]>) {
         validateDataSource()
-        dataSource?.loadRecipes(limit: limit, result: result)
+        dataSource?.loadRecipes(query: query, limit: limit, result: result)
     }
 }
