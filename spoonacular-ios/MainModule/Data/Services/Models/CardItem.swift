@@ -12,6 +12,7 @@ struct CardItem: Codable {
     var title: String?
     var image: String?
     var imageType: String?
+    var isSaved = false
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -27,5 +28,13 @@ struct CardItem: Codable {
         self.title = try container.decodeIfPresent(String.self, forKey: .title)
         self.image = try container.decodeIfPresent(String.self, forKey: .image)
         self.imageType = try container.decodeIfPresent(String.self, forKey: .imageType)
+    }
+    
+    init(id: String, title: String?, image: String?, imageType: String?, isSaved: Bool = false) {
+        self.id = id
+        self.title = title
+        self.image = image
+        self.imageType = imageType
+        self.isSaved = isSaved
     }
 }

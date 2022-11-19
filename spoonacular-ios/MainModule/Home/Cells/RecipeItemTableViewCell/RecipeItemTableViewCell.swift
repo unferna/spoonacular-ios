@@ -108,6 +108,8 @@ class RecipeItemTableViewCell: UITableViewCell {
     
     func configureWith(item: CardItem) {
         titleLabel.text = item.title
+        favoriteButton.isSelected = item.isSaved
+        
         guard let imageUrlString = item.image else { return }
         let imageUrl = URL(string: imageUrlString)
         

@@ -123,9 +123,19 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(RecipeItemTableViewCell.self, for: indexPath)
         cell.indexPath = indexPath
+        cell.delegate = self
         cell.configureWith(item: cardItem)
         
         return cell
+    }
+}
+
+extension HomeViewController: RecipeItemTableViewCellDelegate {
+    func didFavoriteStateToggle(at indexPath: IndexPath) {
+        guard let cardItem = cardsDataSource[safe: indexPath.row] else { return }
+        
+        presentation?.toggleRecipe(cardItem: cardItem)
+        cardsDataSource[indexPath.row].isSaved.toggle()
     }
 }
 

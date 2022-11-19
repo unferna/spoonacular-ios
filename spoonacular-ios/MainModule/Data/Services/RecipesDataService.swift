@@ -9,12 +9,17 @@ import Foundation
 
 class RecipesDataService {
     private var dataSource: RecipesDataServiceType?
+    private var itemsPersistance: RecipesPersistanceType?
     static let shared = RecipesDataService()
     
     private init() {}
     
     func initialize(dataSource: RecipesDataServiceType?) {
         self.dataSource = dataSource
+    }
+    
+    func initialize(itemsPersistance: RecipesPersistanceType?) {
+        self.itemsPersistance = itemsPersistance
     }
     
     private func validateDataSource() {
@@ -25,6 +30,28 @@ class RecipesDataService {
     
     func loadRecipes(query: String?, limit: Int, result: @escaping CompletionBlock<[CardItem]>) {
         validateDataSource()
-        dataSource?.loadRecipes(query: query, limit: limit, result: result)
+        dataSource?.loadRecipes(query: query, limit: limit) { [weak self] items, error in
+            guard let self = self, let items = items else {
+                result(nil, error)
+                return
+            }
+            
+            let newItemCollection = items.map { cardItem in
+                var item = cardItem
+                item.isSaved = self.itemsPersistance?.isItemSaved(id: item.id) ?? false
+                
+                return item
+            }
+            
+            result(newItemCollection, error)
+        }
+    }
+    
+    func saveRecipe(cardItem: CardItem) {
+        itemsPersistance?.saveCardItem(cardItem)
+    }
+    
+    func removeRecipe(id: String) {
+        itemsPersistance?.removeItem(id: id)
     }
 }

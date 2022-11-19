@@ -28,4 +28,13 @@ class RecipesPresenter {
             self?.view?.recipesCardsLoaded(data)
         }
     }
+    
+    func toggleRecipe(cardItem: CardItem) {
+        if cardItem.isSaved {
+            RecipesDataService.shared.removeRecipe(id: cardItem.id)
+            
+        } else {
+            RecipesDataService.shared.saveRecipe(cardItem: cardItem)
+        }
+    }
 }

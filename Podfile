@@ -8,7 +8,7 @@ target 'spoonacular-ios' do
   # Pods for spoonacular-ios
   pod 'Alamofire'
   pod 'Kingfisher', '~> 7.0'
-  pod 'Realm', '10.32.3'
+  pod 'RealmSwift', '10.32.3'
 
   target 'spoonacular-iosTests' do
     inherit! :search_paths

@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alamofireRecipesDataSource = AlamofireRecipesDataSource(apiKey: loadAPIKey())
         RecipesDataService.shared.initialize(dataSource: alamofireRecipesDataSource)
         
+        let realmRecipesDataSource = RealmSavedRecipesDataSource()
+        RecipesDataService.shared.initialize(itemsPersistance: realmRecipesDataSource)
+        
         return true
     }
 
