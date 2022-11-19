@@ -9,9 +9,17 @@
 /* Begin PBXBuildFile section */
 		1FC6A1BBE384EE76BC182FDF /* Pods_spoonacular_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71FAC1806461F7ACD94F2ED /* Pods_spoonacular_ios.framework */; };
 		65D314A41A2327FF026BBEF9 /* Pods_spoonacular_ios_spoonacular_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC78E9F7CFCA319B54BE036A /* Pods_spoonacular_ios_spoonacular_iosUITests.framework */; };
+		A89E9AFC29283A9C00139A97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9AFB29283A9C00139A97 /* HomeViewController.swift */; };
+		A89E9B0129283B6800139A97 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B0029283B6800139A97 /* Theme.swift */; };
+		A89E9B0329283BDC00139A97 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B0229283BDC00139A97 /* MainTabBarController.swift */; };
+		A89E9B0529283E0D00139A97 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B0429283E0D00139A97 /* MyRecipesViewController.swift */; };
+		A89E9B082928408200139A97 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B072928408200139A97 /* UIViewController+Extensions.swift */; };
+		A89E9B0A2928411B00139A97 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B092928411B00139A97 /* UIApplication+Extensions.swift */; };
+		A89E9B102928442400139A97 /* RecipeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B0F2928442400139A97 /* RecipeItemTableViewCell.swift */; };
+		A89E9B12292845A400139A97 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B11292845A400139A97 /* UITableView+Extensions.swift */; };
+		A89E9B142928462500139A97 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B132928462500139A97 /* UIView+Extensions.swift */; };
 		A8ACC0BD2927DFC400A2E447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */; };
 		A8ACC0BF2927DFC400A2E447 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */; };
-		A8ACC0C12927DFC400A2E447 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ACC0C02927DFC400A2E447 /* ViewController.swift */; };
 		A8ACC0C42927DFC400A2E447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8ACC0C22927DFC400A2E447 /* Main.storyboard */; };
 		A8ACC0C62927DFC800A2E447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8ACC0C52927DFC800A2E447 /* Assets.xcassets */; };
 		A8ACC0C92927DFC800A2E447 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8ACC0C72927DFC800A2E447 /* LaunchScreen.storyboard */; };
@@ -45,10 +53,18 @@
 		851A6612CFEE7DB9D73E623E /* Pods-spoonacular-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-iosTests/Pods-spoonacular-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF5C8596D5CE030B252532B /* Pods-spoonacular-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios.release.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios.release.xcconfig"; sourceTree = "<group>"; };
 		A46594383BC1AC4364092A2D /* Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A89E9AFB29283A9C00139A97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A89E9B0029283B6800139A97 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A89E9B0229283BDC00139A97 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A89E9B0429283E0D00139A97 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
+		A89E9B072928408200139A97 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		A89E9B092928411B00139A97 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		A89E9B0F2928442400139A97 /* RecipeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeItemTableViewCell.swift; sourceTree = "<group>"; };
+		A89E9B11292845A400139A97 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		A89E9B132928462500139A97 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		A8ACC0B92927DFC400A2E447 /* spoonacular-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "spoonacular-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A8ACC0C02927DFC400A2E447 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A8ACC0C32927DFC400A2E447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8ACC0C52927DFC800A2E447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8ACC0C82927DFC800A2E447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,6 +107,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A89E9AFD29283ABC00139A97 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B0029283B6800139A97 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		A89E9B062928405900139A97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B072928408200139A97 /* UIViewController+Extensions.swift */,
+				A89E9B092928411B00139A97 /* UIApplication+Extensions.swift */,
+				A89E9B11292845A400139A97 /* UITableView+Extensions.swift */,
+				A89E9B132928462500139A97 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A89E9B0B2928437400139A97 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B0C2928438C00139A97 /* RecipeItemTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A89E9B0C2928438C00139A97 /* RecipeItemTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B0F2928442400139A97 /* RecipeItemTableViewCell.swift */,
+			);
+			path = RecipeItemTableViewCell;
+			sourceTree = "<group>";
+		};
+		A89E9B0D292843B100139A97 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B0B2928437400139A97 /* Cells */,
+				A89E9AFB29283A9C00139A97 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A89E9B0E292843E700139A97 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B0D292843B100139A97 /* Home */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		A89E9B152928FC3600139A97 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A89E9B162928FC4600139A97 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A89E9B162928FC4600139A97 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		A8ACC0B02927DFC400A2E447 = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +199,18 @@
 		A8ACC0BB2927DFC400A2E447 /* spoonacular-ios */ = {
 			isa = PBXGroup;
 			children = (
+				A89E9B0E292843E700139A97 /* MainModule */,
+				A89E9B0429283E0D00139A97 /* MyRecipesViewController.swift */,
+				A89E9B0229283BDC00139A97 /* MainTabBarController.swift */,
+				A89E9AFD29283ABC00139A97 /* Theme */,
 				A8ACC0BC2927DFC400A2E447 /* AppDelegate.swift */,
 				A8ACC0BE2927DFC400A2E447 /* SceneDelegate.swift */,
-				A8ACC0C02927DFC400A2E447 /* ViewController.swift */,
 				A8ACC0C22927DFC400A2E447 /* Main.storyboard */,
 				A8ACC0C52927DFC800A2E447 /* Assets.xcassets */,
 				A8ACC0C72927DFC800A2E447 /* LaunchScreen.storyboard */,
 				A8ACC0CA2927DFC800A2E447 /* Info.plist */,
+				A89E9B152928FC3600139A97 /* Resources */,
+				A89E9B062928405900139A97 /* Extensions */,
 			);
 			path = "spoonacular-ios";
 			sourceTree = "<group>";
@@ -164,7 +252,6 @@
 				851A6612CFEE7DB9D73E623E /* Pods-spoonacular-iosTests.debug.xcconfig */,
 				338CBC2D726E79AB28F4CE17 /* Pods-spoonacular-iosTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -407,9 +494,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8ACC0C12927DFC400A2E447 /* ViewController.swift in Sources */,
 				A8ACC0BD2927DFC400A2E447 /* AppDelegate.swift in Sources */,
+				A89E9B0129283B6800139A97 /* Theme.swift in Sources */,
+				A89E9B102928442400139A97 /* RecipeItemTableViewCell.swift in Sources */,
+				A89E9B0529283E0D00139A97 /* MyRecipesViewController.swift in Sources */,
+				A89E9B082928408200139A97 /* UIViewController+Extensions.swift in Sources */,
+				A89E9B12292845A400139A97 /* UITableView+Extensions.swift in Sources */,
+				A89E9B0329283BDC00139A97 /* MainTabBarController.swift in Sources */,
 				A8ACC0BF2927DFC400A2E447 /* SceneDelegate.swift in Sources */,
+				A89E9B0A2928411B00139A97 /* UIApplication+Extensions.swift in Sources */,
+				A89E9AFC29283A9C00139A97 /* HomeViewController.swift in Sources */,
+				A89E9B142928462500139A97 /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
