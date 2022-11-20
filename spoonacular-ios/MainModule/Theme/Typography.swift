@@ -31,9 +31,11 @@ extension Theme {
         case screenTitle
         case headline
         case body
+        case bodyBold
         case smallInformation
         case cardTitle
         case input
+        case largeButton
         
         var textStyle: TextStyle {
             switch self {
@@ -46,6 +48,9 @@ extension Theme {
             case .body:
                 return TextStyle(fontName: .regular, size: 14, lineHeight: 20)
                 
+            case .bodyBold:
+                return TextStyle(fontName: .bold, size: 14, lineHeight: 20)
+                
             case .smallInformation:
                 return TextStyle(fontName: .semibold, size: 12, lineHeight: 20)
                 
@@ -54,6 +59,9 @@ extension Theme {
                 
             case .input:
                 return TextStyle(fontName: .regular, size: 16, lineHeight: 26)
+                
+            case .largeButton:
+                return TextStyle(fontName: .bold, size: 16, lineHeight: 20)
             }
         }
     }

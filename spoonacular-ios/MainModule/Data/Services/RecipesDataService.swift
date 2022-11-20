@@ -7,10 +7,17 @@
 
 import Foundation
 
+protocol ItemsPersistanceDelegate: AnyObject {
+    func didItemSave(id: String)
+    func didItemRemove(id: String)
+}
+
 class RecipesDataService {
     private var dataSource: RecipesDataServiceType?
     private var itemsPersistance: RecipesPersistanceType?
     static let shared = RecipesDataService()
+    
+    private var persistanceDelegates = MulticastDelegate<ItemsPersistanceDelegate>()
     
     private init() {}
     
@@ -47,17 +54,50 @@ class RecipesDataService {
         }
     }
     
-    func loadRecipeDetails(id: String) {
+    func loadRecipeDetails(id: String, result: @escaping CompletionBlock<RecipeDetails>) {
         validateDataSource()
-        
-        dataSource?.loadRecipeDetails(id: id) { details, error in }
+        dataSource?.loadRecipeDetails(id: id) { [weak self] details, error in
+            guard let self = self, var details = details else {
+                result(nil, error)
+                return
+            }
+            
+            details.isSaved = self.itemsPersistance?.isItemSaved(id: details.id) ?? false
+            result(details, error)
+        }
     }
     
     func saveRecipe(cardItem: CardItem) {
         itemsPersistance?.saveCardItem(cardItem)
+        loadRecipeDetails(id: cardItem.id) { [weak self] details, error in
+            guard let self = self, let details = details else { return }
+            self.itemsPersistance?.saveRecipeDetails(details)
+        }
+        
+        persistanceDelegates.invokeDelegates {
+            $0.didItemSave(id: cardItem.id)
+        }
+    }
+    
+    func saveRecipe(recipeDetails: RecipeDetails) {
+        itemsPersistance?.saveRecipeDetails(recipeDetails)
+        persistanceDelegates.invokeDelegates {
+            $0.didItemSave(id: recipeDetails.id)
+        }
     }
     
     func removeRecipe(id: String) {
         itemsPersistance?.removeItem(id: id)
+        persistanceDelegates.invokeDelegates {
+            $0.didItemRemove(id: id)
+        }
+    }
+    
+    func addPersistanceDelegate(delegate: ItemsPersistanceDelegate) {
+        persistanceDelegates.addDelegate(delegate)
+    }
+    
+    func removePersistanceDelegate(delegate: ItemsPersistanceDelegate) {
+        persistanceDelegates.removeDelegate(delegate)
     }
 }

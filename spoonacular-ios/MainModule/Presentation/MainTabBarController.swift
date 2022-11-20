@@ -38,5 +38,12 @@ class MainTabBarController: UITabBarController {
         ]
         
         tabBar.backgroundColor = .white
+
+        let icons = ["house", "bookmark"]
+        
+        icons.enumerated().forEach {
+            tabBar.items?[$0].image = UIImage(systemName: $1)
+            tabBar.items?[$0].selectedImage = UIImage(systemName: "\($1).fill")
+        }
     }
 }

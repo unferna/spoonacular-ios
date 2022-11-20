@@ -11,21 +11,43 @@ protocol RecipesView: BasicView {
     func recipesCardsLoaded(_ cards: [CardItem])
 }
 
+protocol RecipeDetailsView: BasicView {
+    func recipeDetailsLoaded(_ details: RecipeDetails)
+}
+
 class RecipesPresenter {
-    private var view: RecipesView?
+    private var listView: RecipesView?
+    private var detailsView: RecipeDetailsView?
     
     init(view: RecipesView?) {
-        self.view = view
+        self.listView = view
+        
+    }
+    
+    init(view: RecipeDetailsView?) {
+        self.detailsView = view
+    }
+    
+    func registerPersistanceDelegate(persistanceDelegate: ItemsPersistanceDelegate?) {
+        if let persistanceDelegate = persistanceDelegate {
+            RecipesDataService.shared.addPersistanceDelegate(delegate: persistanceDelegate)
+        }
+    }
+    
+    func unregisterPersistanceDelegate(persistanceDelegate: ItemsPersistanceDelegate?) {
+        if let persistanceDelegate = persistanceDelegate {
+            RecipesDataService.shared.removePersistanceDelegate(delegate: persistanceDelegate)
+        }
     }
     
     func findRecipes(searchText: String? = nil, limit: Int = 10) {
         RecipesDataService.shared.loadRecipes(query: searchText, limit: limit) { [weak self] data, error in
             guard let data = data else {
-                self?.view?.showError(error)
+                self?.listView?.showError(error)
                 return
             }
             
-            self?.view?.recipesCardsLoaded(data)
+            self?.listView?.recipesCardsLoaded(data)
         }
     }
     
@@ -38,7 +60,25 @@ class RecipesPresenter {
         }
     }
     
+    func toggleRecipe(details: RecipeDetails) {
+        if details.isSaved {
+            RecipesDataService.shared.removeRecipe(id: details.id)
+            
+        } else {
+            RecipesDataService.shared.saveRecipe(recipeDetails: details)
+        }
+    }
+    
     func recipeDetails(of item: CardItem) {
-        RecipesDataService.shared.loadRecipeDetails(id: item.id)
+        RecipesDataService.shared.loadRecipeDetails(id: item.id) { [weak self] details, error in
+            guard let self = self else { return }
+            
+            guard let details = details else {
+                self.detailsView?.showError(error)
+                return
+            }
+            
+            self.detailsView?.recipeDetailsLoaded(details)
+        }
     }
 }

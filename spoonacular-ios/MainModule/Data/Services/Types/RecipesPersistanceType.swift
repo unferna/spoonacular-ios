@@ -9,7 +9,9 @@ import Foundation
 
 protocol RecipesPersistanceType {
     var savedCardItems: [CardItem] { get }
+    var savedRecipesDetails: [RecipeDetails] { get }
     func saveCardItem(_ item: CardItem)
     func removeItem(id: String)
     func isItemSaved(id: String) -> Bool
+    func saveRecipeDetails(_ recipeDetails: RecipeDetails)
 }

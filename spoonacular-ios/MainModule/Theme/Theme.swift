@@ -13,10 +13,13 @@ extension Theme {
     enum Colors {
         static let primary = UIColor(named: "primary")
         static let accent = UIColor(named: "accent")
+        static let primaryText = UIColor(named: "primaryText")
     }
     
     enum Layout {
+        /// 24pt
         static let basicHorizontalSpacing: CGFloat = 24
+        /// 16pt
         static let basicInterItemSpacing: CGFloat = 16
     }
 }
