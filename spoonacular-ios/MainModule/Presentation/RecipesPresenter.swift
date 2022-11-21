@@ -40,8 +40,8 @@ class RecipesPresenter {
         }
     }
     
-    func findRecipes(searchText: String? = nil, limit: Int = 10) {
-        RecipesDataService.shared.loadRecipes(query: searchText, limit: limit) { [weak self] data, error in
+    func findRecipes(searchText: String? = nil, limit: Int = 10, savedOnly: Bool = false) {
+        RecipesDataService.shared.loadRecipes(query: searchText, limit: limit, savedOnly: savedOnly) { [weak self] data, error in
             guard let data = data else {
                 if let error = error {
                     self?.listView?.showError(error)
