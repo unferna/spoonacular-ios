@@ -35,22 +35,33 @@ class RecipesDataService {
         }
     }
     
-    func loadRecipes(query: String?, limit: Int, result: @escaping CompletionBlock<[CardItem]>) {
+    func loadRecipes(query: String?, limit: Int, savedOnly: Bool, result: @escaping CompletionBlock<[CardItem]>) {
         validateDataSource()
-        dataSource?.loadRecipes(query: query, limit: limit) { [weak self] items, error in
-            guard let self = self, let items = items else {
-                result(nil, error)
+        
+        if savedOnly {
+            guard let items = itemsPersistance?.savedCardItems else {
+                result(nil, CommonError.plain(message: "No saved recipes found"))
                 return
             }
             
-            let newItemCollection = items.map { cardItem in
-                var item = cardItem
-                item.isSaved = self.itemsPersistance?.isItemSaved(id: item.id) ?? false
-                
-                return item
-            }
+            result(items, nil)
             
-            result(newItemCollection, error)
+        } else {
+            dataSource?.loadRecipes(query: query, limit: limit) { [weak self] items, error in
+                guard let self = self, let items = items else {
+                    result(nil, error)
+                    return
+                }
+                
+                let newItemCollection = items.map { cardItem in
+                    var item = cardItem
+                    item.isSaved = self.itemsPersistance?.isItemSaved(id: item.id) ?? false
+                    
+                    return item
+                }
+                
+                result(newItemCollection, error)
+            }
         }
     }
     
