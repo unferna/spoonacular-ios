@@ -23,10 +23,12 @@ The chosen design pattern for this project is **Dependency Injection**. Since de
 State: Pending
 
 2) HTML. The summary text that is coming in recipe details is HTML. `NSAttributedString` has the capability to render HTML based on given rules.  
-State: Pending
+State: Done
 
 3) Links. Once HTML is rendered properly, some `delegates` should be created to open links coming in the summary text.  
-State: Pending
+State: Done
 
 3) Load items offline: Since we are persisting recipes at home and their details, the app should be able to load them offline.  
 State: Done
+
+4) Unit Testing

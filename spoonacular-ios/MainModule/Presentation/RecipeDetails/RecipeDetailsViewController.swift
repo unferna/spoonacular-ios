@@ -17,6 +17,11 @@ private enum RecipeDetailsCellType: CaseIterable {
     static func casesValidation(recipeDetails: RecipeDetails) -> [Self] {
         var cases = allCases
         
+        let summary = recipeDetails.summary ?? ""
+        if summary.isEmpty {
+            cases.removeAll(where: { $0 == .summary })
+        }
+        
         if recipeDetails.ingredients.isEmpty {
             cases.removeAll(where: { $0 == .ingredients })
         }
@@ -52,13 +57,20 @@ class RecipeDetailsViewController: BasicViewController {
     private var presentation: RecipesPresenter?
     private var details: RecipeDetails?
     var cardItem: CardItem?
+    var recipeId: String?
+    var useIdInstead = false
     
     override func commonInit() {
         super.commonInit()
         presentation = RecipesPresenter(view: self)
         presentation?.registerPersistanceDelegate(persistanceDelegate: self)
         setupSubviews()
-        loadData()
+        if let recipeId = recipeId, useIdInstead {
+            loadData(id: recipeId)
+            
+        } else {
+            loadData()
+        }
     }
     
     private func setupSubviews() {
@@ -77,6 +89,11 @@ class RecipeDetailsViewController: BasicViewController {
         guard let cardItem = cardItem else { return }
         let shouldUseOfflineVersion = !NetworkChecker.defaults.isConnected && cardItem.isSaved
         presentation?.recipeDetails(of: cardItem, shouldLoadOfflineVersion: shouldUseOfflineVersion)
+    }
+    
+    private func loadData(id: String) {
+        let useOfflineVersion = !NetworkChecker.defaults.isConnected
+        presentation?.recipeDetails(id: id, shouldLoadOfflineVersion: useOfflineVersion)
     }
     
     private func updateButtonSections() {
@@ -130,6 +147,7 @@ extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegat
             
         case .summary:
             let cell = tableView.dequeueReusableCell(RecipeDetailsTextItemTableViewCell.self, for: indexPath)
+            cell.textViewURLDelegate = self
             cell.configureWith(text: details?.summary)
             return cell
             
@@ -198,6 +216,22 @@ extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegat
         default:
             return .zero
         }
+    }
+}
+
+extension RecipeDetailsViewController: TextViewURLDelegate {
+    func shouldOpenURLOrArticle(url: URL) {
+        let urlString = url.absoluteString
+        let chops = urlString.split(separator: "-")
+        guard let recipeIdChop = chops.last else { return }
+        
+        let recipeId = String(recipeIdChop)
+        guard recipeId.isNumber else { return }
+        
+        let controller = RecipeDetailsViewController()
+        controller.useIdInstead = true
+        controller.recipeId = recipeId
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

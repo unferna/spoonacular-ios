@@ -87,4 +87,20 @@ class RecipesPresenter {
             self.detailsView?.recipeDetailsLoaded(details)
         }
     }
+    
+    func recipeDetails(id: String, shouldLoadOfflineVersion: Bool = false) {
+        RecipesDataService.shared.loadRecipeDetails(id: id, shouldLoadOfflineVersion: shouldLoadOfflineVersion) { [weak self] details, error in
+            guard let self = self else { return }
+            
+            guard let details = details else {
+                if let error = error {
+                    self.detailsView?.showError(error)
+                }
+                
+                return
+            }
+            
+            self.detailsView?.recipeDetailsLoaded(details)
+        }
+    }
 }

@@ -7,13 +7,21 @@
 
 import UIKit
 
+protocol TextViewURLDelegate: AnyObject {
+    func shouldOpenURLOrArticle(url: URL)
+}
+
 class RecipeDetailsTextItemTableViewCell: UITableViewCell {
     private lazy var titleTextView: UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = false
+        textView.isEditable = false
+        textView.delegate = self
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
+    
+    weak var textViewURLDelegate: TextViewURLDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,7 +48,7 @@ class RecipeDetailsTextItemTableViewCell: UITableViewCell {
         var formattedText = NSMutableAttributedString().text(text ?? "", style: .body)
         
         guard let number = number, number > 0 else {
-            titleTextView.attributedText = formattedText
+            titleTextView.setHtmlText(text, theme: .body)
             return
         }
         
@@ -50,5 +58,12 @@ class RecipeDetailsTextItemTableViewCell: UITableViewCell {
             .text(text ?? "", style: .body)
         
         titleTextView.attributedText = formattedText
+    }
+}
+
+extension RecipeDetailsTextItemTableViewCell: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        textViewURLDelegate?.shouldOpenURLOrArticle(url: URL)
+        return false
     }
 }
