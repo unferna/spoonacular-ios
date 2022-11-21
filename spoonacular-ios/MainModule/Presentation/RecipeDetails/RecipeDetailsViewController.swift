@@ -34,6 +34,53 @@ private enum RecipeDetailsCellType: CaseIterable {
     }
 }
 
+protocol RecipeDetailsTableHeaderViewDelegate: AnyObject {
+    func didBackButtonTap()
+}
+
+class RecipeDetailsTableHeaderView: UIView {
+    private lazy var backButton: UIButton = {
+        let iconConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
+        let iconImage = UIImage(systemName: "arrow.backward", withConfiguration: iconConfiguration)
+        
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setImage(iconImage, for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    @objc private func backButtonTapped(_ sender: UIButton) {
+        delegate?.didBackButtonTap()
+    }
+    
+    weak var delegate: RecipeDetailsTableHeaderViewDelegate?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupSubviews()
+    }
+    
+    private func setupSubviews() {
+        addSubview(backButton)
+        let constraints = [
+            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Theme.Layout.basicHorizontalSpacing),
+            backButton.widthAnchor.constraint(equalToConstant: 38),
+            backButton.heightAnchor.constraint(equalToConstant: 38),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+}
+
 class RecipeDetailsViewController: BasicViewController {
     private lazy var contentTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -43,10 +90,15 @@ class RecipeDetailsViewController: BasicViewController {
         
         var tablePadding = tableView.contentInset
         tablePadding.bottom = Theme.Layout.basicHorizontalSpacing
+        
+        let tableHeaderSize = CGSize(width: firstKeyWindowSize.width, height: 48)
+        let tableHeader = RecipeDetailsTableHeaderView(frame: CGRect(origin: .zero, size: tableHeaderSize))
+        tableHeader.delegate = self
 
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInset = tablePadding
+        tableView.tableHeaderView = tableHeader
         tableView.backgroundColor = .clear
         tableView.sectionFooterHeight = .zero
         tableView.separatorStyle = .none
@@ -235,11 +287,13 @@ extension RecipeDetailsViewController: TextViewURLDelegate {
     }
 }
 
-extension RecipeDetailsViewController: RecipeDetailsHeaderTableViewCellDelegate {
+extension RecipeDetailsViewController: RecipeDetailsTableHeaderViewDelegate {
     func didBackButtonTap() {
         navigationController?.popViewController(animated: true)
     }
-    
+}
+
+extension RecipeDetailsViewController: RecipeDetailsHeaderTableViewCellDelegate {
     func didFavoriteButtonTap() {
         guard let recipeDetails = details else { return }
         presentation?.toggleRecipe(details: recipeDetails)
