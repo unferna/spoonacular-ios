@@ -84,8 +84,6 @@ class HomeViewController: BasicViewController {
             contentTableView.trailingAnchor.constraint(equalTo: tableContainerView.trailingAnchor),
             contentTableView.bottomAnchor.constraint(equalTo: tableContainerView.bottomAnchor),
         ])
-        
-        // view.addGestureRecognizer(closeKeyboardGesture)
     }
     
     private func loadData() {
@@ -94,6 +92,7 @@ class HomeViewController: BasicViewController {
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
+        view.removeGestureRecognizer(closeKeyboardGesture)
     }
     
     private func reloadItemOf(id: String, isSaved: Bool) {
@@ -111,6 +110,10 @@ class HomeViewController: BasicViewController {
 }
 
 extension HomeViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        view.addGestureRecognizer(closeKeyboardGesture)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         debounceSearchBarTimer?.invalidate()
         debounceSearchBarTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
