@@ -43,7 +43,10 @@ class RecipesPresenter {
     func findRecipes(searchText: String? = nil, limit: Int = 10) {
         RecipesDataService.shared.loadRecipes(query: searchText, limit: limit) { [weak self] data, error in
             guard let data = data else {
-                self?.listView?.showError(error)
+                if let error = error {
+                    self?.listView?.showError(error)
+                }
+                
                 return
             }
             
@@ -74,7 +77,10 @@ class RecipesPresenter {
             guard let self = self else { return }
             
             guard let details = details else {
-                self.detailsView?.showError(error)
+                if let error = error {
+                    self.detailsView?.showError(error)
+                }
+                
                 return
             }
             

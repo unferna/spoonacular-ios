@@ -21,6 +21,8 @@ extension Theme {
         static let basicHorizontalSpacing: CGFloat = 24
         /// 16pt
         static let basicInterItemSpacing: CGFloat = 16
+        
+        static let mediumVerticalSpacing: CGFloat = 12
     }
 }
 
