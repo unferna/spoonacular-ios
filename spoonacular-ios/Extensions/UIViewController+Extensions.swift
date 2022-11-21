@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIViewController {
+    var firstKeyWindowSize: CGSize {
+        UIApplication.shared.firstKeyWindow?.frame.size ?? .zero
+    }
+    
     var firstKeyWindowInsets: UIEdgeInsets? {
         UIApplication.shared.firstKeyWindow?.safeAreaInsets
     }

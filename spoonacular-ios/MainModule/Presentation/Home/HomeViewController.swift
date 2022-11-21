@@ -38,6 +38,7 @@ class HomeViewController: BasicViewController {
         tablePadding.bottom = Theme.Layout.basicHorizontalSpacing
         tableView.contentInset = tablePadding
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -56,6 +57,7 @@ class HomeViewController: BasicViewController {
         super.commonInit()
         
         presentation = RecipesPresenter(view: self)
+        presentation?.registerPersistanceDelegate(persistanceDelegate: self)
         setupSubviews()
         loadData()
     }
@@ -83,7 +85,7 @@ class HomeViewController: BasicViewController {
             contentTableView.bottomAnchor.constraint(equalTo: tableContainerView.bottomAnchor),
         ])
         
-        view.addGestureRecognizer(closeKeyboardGesture)
+        // view.addGestureRecognizer(closeKeyboardGesture)
     }
     
     private func loadData() {
@@ -94,7 +96,16 @@ class HomeViewController: BasicViewController {
         view.endEditing(true)
     }
     
+    private func reloadItemOf(id: String, isSaved: Bool) {
+        guard let cardItemIndex = cardsDataSource.firstIndex(where: { $0.id == id }) else { return }
+        cardsDataSource[cardItemIndex].isSaved = isSaved
+        
+        let target = IndexPath(row: cardItemIndex, section: 0)
+        contentTableView.reloadRows(at: [target], with: .automatic)
+    }
+    
     deinit {
+        presentation?.unregisterPersistanceDelegate(persistanceDelegate: self)
         view.removeGestureRecognizer(closeKeyboardGesture)
     }
 }
@@ -113,7 +124,7 @@ extension HomeViewController: UISearchBarDelegate {
     }
 }
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cardsDataSource.count
     }
@@ -127,6 +138,14 @@ extension HomeViewController: UITableViewDataSource {
         cell.configureWith(item: cardItem)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cardItem = cardsDataSource[safe: indexPath.row] else { return }
+        
+        let recipeDetailsViewController = RecipeDetailsViewController()
+        recipeDetailsViewController.cardItem = cardItem
+        navigationController?.pushViewController(recipeDetailsViewController, animated: true)
     }
 }
 
@@ -143,5 +162,15 @@ extension HomeViewController: RecipesView {
     func recipesCardsLoaded(_ cards: [CardItem]) {
         cardsDataSource = cards
         contentTableView.reloadData()
+    }
+}
+
+extension HomeViewController: ItemsPersistanceDelegate {
+    func didItemSave(id: String) {
+        reloadItemOf(id: id, isSaved: true)
+    }
+    
+    func didItemRemove(id: String) {
+        reloadItemOf(id: id, isSaved: false)
     }
 }
