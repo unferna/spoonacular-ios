@@ -8,24 +8,10 @@
 import UIKit
 
 protocol RecipeDetailsHeaderTableViewCellDelegate: AnyObject {
-    func didBackButtonTap()
     func didFavoriteButtonTap()
 }
 
 class RecipeDetailsHeaderTableViewCell: UITableViewCell {
-    private lazy var backButton: UIButton = {
-        let iconConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
-        let iconImage = UIImage(systemName: "arrow.backward", withConfiguration: iconConfiguration)
-        
-        let button = UIButton()
-        button.backgroundColor = .clear
-        button.setImage(iconImage, for: .normal)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Recipe Title"
@@ -68,10 +54,6 @@ class RecipeDetailsHeaderTableViewCell: UITableViewCell {
         return label
     }()
     
-    @objc private func backButtonTapped(_ sender: UIButton) {
-        delegate?.didBackButtonTap()
-    }
-    
     @objc private func favoriteButtonTapped(_ sender: UIButton) {
         delegate?.didFavoriteButtonTap()
     }
@@ -90,7 +72,6 @@ class RecipeDetailsHeaderTableViewCell: UITableViewCell {
     
     private func setupSubviews() {
         selectionStyle = .none
-        contentView.addSubview(backButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(recipeImageView)
         contentView.addSubview(favoriteButton)
@@ -100,13 +81,8 @@ class RecipeDetailsHeaderTableViewCell: UITableViewCell {
         titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Theme.Layout.basicInterItemSpacing),
-            backButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Theme.Layout.basicHorizontalSpacing),
-            backButton.widthAnchor.constraint(equalToConstant: 38),
-            backButton.heightAnchor.constraint(equalToConstant: 38),
-            
-            titleLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: Theme.Layout.basicHorizontalSpacing),
-            titleLabel.leadingAnchor.constraint(equalTo: backButton.leadingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Theme.Layout.basicHorizontalSpacing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Theme.Layout.basicHorizontalSpacing),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Theme.Layout.basicHorizontalSpacing),
             
             recipeImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Theme.Layout.basicHorizontalSpacing),

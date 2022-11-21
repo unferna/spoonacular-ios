@@ -17,6 +17,11 @@ private enum RecipeDetailsCellType: CaseIterable {
     static func casesValidation(recipeDetails: RecipeDetails) -> [Self] {
         var cases = allCases
         
+        let summary = recipeDetails.summary ?? ""
+        if summary.isEmpty {
+            cases.removeAll(where: { $0 == .summary })
+        }
+        
         if recipeDetails.ingredients.isEmpty {
             cases.removeAll(where: { $0 == .ingredients })
         }
@@ -29,6 +34,53 @@ private enum RecipeDetailsCellType: CaseIterable {
     }
 }
 
+protocol RecipeDetailsTableHeaderViewDelegate: AnyObject {
+    func didBackButtonTap()
+}
+
+class RecipeDetailsTableHeaderView: UIView {
+    private lazy var backButton: UIButton = {
+        let iconConfiguration = UIImage.SymbolConfiguration(pointSize: 24)
+        let iconImage = UIImage(systemName: "arrow.backward", withConfiguration: iconConfiguration)
+        
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setImage(iconImage, for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    @objc private func backButtonTapped(_ sender: UIButton) {
+        delegate?.didBackButtonTap()
+    }
+    
+    weak var delegate: RecipeDetailsTableHeaderViewDelegate?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupSubviews()
+    }
+    
+    private func setupSubviews() {
+        addSubview(backButton)
+        let constraints = [
+            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Theme.Layout.basicHorizontalSpacing),
+            backButton.widthAnchor.constraint(equalToConstant: 38),
+            backButton.heightAnchor.constraint(equalToConstant: 38),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+}
+
 class RecipeDetailsViewController: BasicViewController {
     private lazy var contentTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -38,10 +90,15 @@ class RecipeDetailsViewController: BasicViewController {
         
         var tablePadding = tableView.contentInset
         tablePadding.bottom = Theme.Layout.basicHorizontalSpacing
+        
+        let tableHeaderSize = CGSize(width: firstKeyWindowSize.width, height: 48)
+        let tableHeader = RecipeDetailsTableHeaderView(frame: CGRect(origin: .zero, size: tableHeaderSize))
+        tableHeader.delegate = self
 
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInset = tablePadding
+        tableView.tableHeaderView = tableHeader
         tableView.backgroundColor = .clear
         tableView.sectionFooterHeight = .zero
         tableView.separatorStyle = .none
@@ -52,13 +109,20 @@ class RecipeDetailsViewController: BasicViewController {
     private var presentation: RecipesPresenter?
     private var details: RecipeDetails?
     var cardItem: CardItem?
+    var recipeId: String?
+    var useIdInstead = false
     
     override func commonInit() {
         super.commonInit()
         presentation = RecipesPresenter(view: self)
         presentation?.registerPersistanceDelegate(persistanceDelegate: self)
         setupSubviews()
-        loadData()
+        if let recipeId = recipeId, useIdInstead {
+            loadData(id: recipeId)
+            
+        } else {
+            loadData()
+        }
     }
     
     private func setupSubviews() {
@@ -77,6 +141,11 @@ class RecipeDetailsViewController: BasicViewController {
         guard let cardItem = cardItem else { return }
         let shouldUseOfflineVersion = !NetworkChecker.defaults.isConnected && cardItem.isSaved
         presentation?.recipeDetails(of: cardItem, shouldLoadOfflineVersion: shouldUseOfflineVersion)
+    }
+    
+    private func loadData(id: String) {
+        let useOfflineVersion = !NetworkChecker.defaults.isConnected
+        presentation?.recipeDetails(id: id, shouldLoadOfflineVersion: useOfflineVersion)
     }
     
     private func updateButtonSections() {
@@ -130,6 +199,7 @@ extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegat
             
         case .summary:
             let cell = tableView.dequeueReusableCell(RecipeDetailsTextItemTableViewCell.self, for: indexPath)
+            cell.textViewURLDelegate = self
             cell.configureWith(text: details?.summary)
             return cell
             
@@ -201,11 +271,29 @@ extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegat
     }
 }
 
-extension RecipeDetailsViewController: RecipeDetailsHeaderTableViewCellDelegate {
+extension RecipeDetailsViewController: TextViewURLDelegate {
+    func shouldOpenURLOrArticle(url: URL) {
+        let urlString = url.absoluteString
+        let chops = urlString.split(separator: "-")
+        guard let recipeIdChop = chops.last else { return }
+        
+        let recipeId = String(recipeIdChop)
+        guard recipeId.isNumber else { return }
+        
+        let controller = RecipeDetailsViewController()
+        controller.useIdInstead = true
+        controller.recipeId = recipeId
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+extension RecipeDetailsViewController: RecipeDetailsTableHeaderViewDelegate {
     func didBackButtonTap() {
         navigationController?.popViewController(animated: true)
     }
-    
+}
+
+extension RecipeDetailsViewController: RecipeDetailsHeaderTableViewCellDelegate {
     func didFavoriteButtonTap() {
         guard let recipeDetails = details else { return }
         presentation?.toggleRecipe(details: recipeDetails)
