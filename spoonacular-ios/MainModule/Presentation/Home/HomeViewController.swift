@@ -145,7 +145,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let recipeDetailsViewController = RecipeDetailsViewController()
         recipeDetailsViewController.cardItem = cardItem
-        navigationController?.pushViewController(recipeDetailsViewController, animated: true)
+        if NetworkChecker.defaults.isConnected || cardItem.isSaved {
+            navigationController?.pushViewController(recipeDetailsViewController, animated: true)
+        }
     }
 }
 

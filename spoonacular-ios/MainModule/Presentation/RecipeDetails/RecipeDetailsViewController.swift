@@ -75,7 +75,8 @@ class RecipeDetailsViewController: BasicViewController {
     
     private func loadData() {
         guard let cardItem = cardItem else { return }
-        presentation?.recipeDetails(of: cardItem)
+        let shouldUseOfflineVersion = !NetworkChecker.defaults.isConnected && cardItem.isSaved
+        presentation?.recipeDetails(of: cardItem, shouldLoadOfflineVersion: shouldUseOfflineVersion)
     }
     
     private func updateButtonSections() {

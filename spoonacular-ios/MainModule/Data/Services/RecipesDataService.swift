@@ -65,22 +65,33 @@ class RecipesDataService {
         }
     }
     
-    func loadRecipeDetails(id: String, result: @escaping CompletionBlock<RecipeDetails>) {
+    func loadRecipeDetails(id: String, shouldLoadOfflineVersion: Bool, result: @escaping CompletionBlock<RecipeDetails>) {
         validateDataSource()
-        dataSource?.loadRecipeDetails(id: id) { [weak self] details, error in
-            guard let self = self, var details = details else {
-                result(nil, error)
+        
+        if shouldLoadOfflineVersion {
+            guard let details = itemsPersistance?.savedRecipesDetails.first(where: { $0.id == id }) else {
+                result(nil, CommonError.plain(message: "Recipe not found"))
                 return
             }
             
-            details.isSaved = self.itemsPersistance?.isItemSaved(id: details.id) ?? false
-            result(details, error)
+            result(details, nil)
+
+        } else {
+            dataSource?.loadRecipeDetails(id: id) { [weak self] details, error in
+                guard let self = self, var details = details else {
+                    result(nil, error)
+                    return
+                }
+                
+                details.isSaved = self.itemsPersistance?.isItemSaved(id: details.id) ?? false
+                result(details, error)
+            }
         }
     }
     
     func saveRecipe(cardItem: CardItem) {
         itemsPersistance?.saveCardItem(cardItem)
-        loadRecipeDetails(id: cardItem.id) { [weak self] details, error in
+        loadRecipeDetails(id: cardItem.id, shouldLoadOfflineVersion: false) { [weak self] details, error in
             guard let self = self, let details = details else { return }
             self.itemsPersistance?.saveRecipeDetails(details)
         }

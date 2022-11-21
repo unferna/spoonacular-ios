@@ -29,4 +29,4 @@ State: Pending
 State: Pending
 
 3) Load items offline: Since we are persisting recipes at home and their details, the app should be able to load them offline.  
-State: Pending
+State: Done

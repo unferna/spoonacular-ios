@@ -14,6 +14,7 @@ extension Theme {
         static let primary = UIColor(named: "primary")
         static let accent = UIColor(named: "accent")
         static let primaryText = UIColor(named: "primaryText")
+        static let success = UIColor(named: "success")
     }
     
     enum Layout {

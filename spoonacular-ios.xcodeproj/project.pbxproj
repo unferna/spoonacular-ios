@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1FC6A1BBE384EE76BC182FDF /* Pods_spoonacular_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71FAC1806461F7ACD94F2ED /* Pods_spoonacular_ios.framework */; };
 		65D314A41A2327FF026BBEF9 /* Pods_spoonacular_ios_spoonacular_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC78E9F7CFCA319B54BE036A /* Pods_spoonacular_ios_spoonacular_iosUITests.framework */; };
+		A851915E292BFD5E00999F5B /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851915D292BFD5E00999F5B /* NetworkChecker.swift */; };
 		A89E9AFC29283A9C00139A97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9AFB29283A9C00139A97 /* HomeViewController.swift */; };
 		A89E9B0129283B6800139A97 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B0029283B6800139A97 /* Theme.swift */; };
 		A89E9B0329283BDC00139A97 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E9B0229283BDC00139A97 /* MainTabBarController.swift */; };
@@ -86,6 +87,7 @@
 		851A6612CFEE7DB9D73E623E /* Pods-spoonacular-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-iosTests/Pods-spoonacular-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF5C8596D5CE030B252532B /* Pods-spoonacular-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios.release.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios/Pods-spoonacular-ios.release.xcconfig"; sourceTree = "<group>"; };
 		A46594383BC1AC4364092A2D /* Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-spoonacular-ios-spoonacular-iosUITests/Pods-spoonacular-ios-spoonacular-iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A851915D292BFD5E00999F5B /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
 		A89E9AFB29283A9C00139A97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A89E9B0029283B6800139A97 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A89E9B0229283BDC00139A97 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				A89E9B75292BDF8B00139A97 /* ModalViewController.swift */,
+				A851915D292BFD5E00999F5B /* NetworkChecker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 			files = (
 				A89E9B68292AD31600139A97 /* RecipeDetailsTextItemTableViewCell.swift in Sources */,
 				A89E9B4229292FF000139A97 /* RecipesDataServiceType.swift in Sources */,
+				A851915E292BFD5E00999F5B /* NetworkChecker.swift in Sources */,
 				A89E9B49292936C200139A97 /* BasicViewController.swift in Sources */,
 				A8ACC0BD2927DFC400A2E447 /* AppDelegate.swift in Sources */,
 				A89E9B6C292AD90700139A97 /* NSMutableAttributedString+Extensions.swift in Sources */,

@@ -72,8 +72,8 @@ class RecipesPresenter {
         }
     }
     
-    func recipeDetails(of item: CardItem) {
-        RecipesDataService.shared.loadRecipeDetails(id: item.id) { [weak self] details, error in
+    func recipeDetails(of item: CardItem, shouldLoadOfflineVersion: Bool = false) {
+        RecipesDataService.shared.loadRecipeDetails(id: item.id, shouldLoadOfflineVersion: shouldLoadOfflineVersion) { [weak self] details, error in
             guard let self = self else { return }
             
             guard let details = details else {
