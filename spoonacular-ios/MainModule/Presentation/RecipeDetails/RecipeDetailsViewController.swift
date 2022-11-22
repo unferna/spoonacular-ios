@@ -159,6 +159,10 @@ class RecipeDetailsViewController: BasicViewController {
         
         contentTableView.reloadSections(indexSet, with: .automatic)
     }
+    
+    deinit {
+        presentation?.unregisterPersistanceDelegate(persistanceDelegate: self)
+    }
 }
 
 extension RecipeDetailsViewController: UITableViewDataSource, UITableViewDelegate {

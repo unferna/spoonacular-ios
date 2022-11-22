@@ -87,6 +87,10 @@ class MyRecipesViewController: BasicViewController {
     private func loadData() {
         presentation?.findRecipes(savedOnly: true)
     }
+    
+    deinit {
+        presentation?.unregisterPersistanceDelegate(persistanceDelegate: self)
+    }
 }
 
 extension MyRecipesViewController: RecipesView {
