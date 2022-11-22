@@ -19,8 +19,11 @@ The chosen architecture for this project is **Model View Presenter** (MVP), sinc
 The chosen design pattern for this project is **Dependency Injection**. Since dependencies can change on the time, and it's a possibility that the logic should be changed because of that dependency change, I decided to adopt this design pattern using the power of `protocols`. As far as data sources adopt the protocol defined to handle that data, it won't mind how or what library is used to retrieve/save the data. DataServices should be given the needed data sources in the entry point of the app (Normally in `AppDelegate`), then they will be ready to return the data Presenters ask for.
 
 ### Problems found
-1) Pull up to refresh. At this moment the project can load only ten items in the home search. In order to load more, an implementation to increase the limit of the query should be added.  
+1) Pull up to fetch more content. At this moment the project can load only ten items in the home search. In order to load more, an implementation to increase the limit of the query should be added.  
 State: Pending
+
+2) Pull down to refresh. Reload table by pulling the scroll down.  
+State: Done (Home)
 
 2) HTML. The summary text that is coming in recipe details is HTML. `NSAttributedString` has the capability to render HTML based on given rules.  
 State: Done
@@ -31,4 +34,5 @@ State: Done
 3) Load items offline: Since we are persisting recipes at home and their details, the app should be able to load them offline.  
 State: Done
 
-4) Unit Testing
+4) Unit Testing.  
+State: Pending

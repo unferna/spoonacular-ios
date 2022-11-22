@@ -20,12 +20,17 @@ class HomeViewController: BasicViewController {
         return searchBar
     }()
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(refreshContentTableViewData), for: .valueChanged)
+        return control
+    }()
+    
     private lazy var tableContainerView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
         view.backgroundColor = .white
-        view.layer.cornerRadius = 32
-        view.layer.maskedCorners = .layerMinXMinYCorner
+        view.roundCorners(.layerMinXMinYCorner, radius: 32)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -40,6 +45,7 @@ class HomeViewController: BasicViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        tableView.refreshControl = refreshControl
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -47,6 +53,10 @@ class HomeViewController: BasicViewController {
     private lazy var closeKeyboardGesture: UITapGestureRecognizer = {
         return UITapGestureRecognizer(target: self, action: #selector( dismissKeyboard ))
     }()
+    
+    @objc private func refreshContentTableViewData(_ sender: Any) {
+        loadData()
+    }
     
     private var presentation: RecipesPresenter?
     private var cardsDataSource: [CardItem] = []
@@ -167,6 +177,7 @@ extension HomeViewController: RecipesView {
     func recipesCardsLoaded(_ cards: [CardItem]) {
         cardsDataSource = cards
         contentTableView.reloadData()
+        refreshControl.endRefreshing()
     }
 }
 
